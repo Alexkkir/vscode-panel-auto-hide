@@ -205,7 +205,12 @@ async function runVersion(label, extensionPath) {
         await delay(400);
         const trace = await finishTrace(page);
         const final = await snapshot(page);
-        const newMaximization = !before.maximized && trace.some((entry) => entry.maximized);
+        let wasMaximized = before.maximized;
+        const newMaximization = trace.some((entry) => {
+          const enteredMaximized = entry.maximized && !wasMaximized;
+          wasMaximized = entry.maximized;
+          return enteredMaximized;
+        });
         const reopenedHiddenPanel = !before.panelVisible && trace.some((entry) => entry.panelVisible);
         const result = { scenario: maximized ? 'maximized' : 'half-height', file, before, final, newMaximization, reopenedHiddenPanel, trace };
         results.push(result);
