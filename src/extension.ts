@@ -7,7 +7,6 @@ function isEnabled(): boolean {
 }
 
 async function hidePanel() {
-  await vscode.commands.executeCommand("workbench.action.toggleMaximizedPanel");
   await vscode.commands.executeCommand("workbench.action.closePanel");
 }
 

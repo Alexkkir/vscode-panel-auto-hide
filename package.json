@@ -2,12 +2,12 @@
   "name": "panel-auto-hide",
   "displayName": "Panel Auto Hide",
   "description": "Automatically hides the panel (terminal, output, problems) when you switch to an editor tab",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "yoshintame",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yoshintame/vscode-panel-auto-hide"
+    "url": "https://github.com/Alexkkir/vscode-panel-auto-hide"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -40,6 +40,7 @@
     }
   },
   "scripts": {
+    "test": "node esbuild.js --production && node --test test/*.test.cjs",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",

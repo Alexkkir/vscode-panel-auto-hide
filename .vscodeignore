@@ -4,6 +4,8 @@
 out/**
 node_modules/**
 src/**
+test/**
+scripts/**
 .gitignore
 .npmrc
 esbuild.js
